@@ -41,11 +41,12 @@ public class RifleBullet : MonoBehaviour {
         }
     }
 
-    public static void Spawn(GameObject prefab, float timeToLive, Vector3 muzzlePosition, Quaternion muzzleRotation, float muzzleVelocity)
+    public static void Spawn(GameObject prefab, float timeToLive, Vector3 muzzlePosition, Quaternion muzzleRotation, float muzzleVelocity, float damage)
     {
         GameObject bullet = Instantiate(prefab, muzzlePosition, muzzleRotation);
         var bulletMovement = bullet.AddComponent<RifleBullet>();
         bulletMovement.velocity = muzzleVelocity;
+        bulletMovement.damage = damage;
         Destroy(bullet, timeToLive);
     }
 }

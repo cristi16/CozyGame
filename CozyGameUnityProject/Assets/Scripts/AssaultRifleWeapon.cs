@@ -32,7 +32,7 @@ public class AssaultRifleWeapon : BaseWeapon{
     {
         if(m_LastBulletFired + 60.0f / roundsPerMinute < Time.time)
         {
-            RifleBullet.Spawn(bulletPrefab, bulletTimeToLive, transform.position + transform.forward * muzzleOffset, transform.rotation, muzzleVelocity);
+            RifleBullet.Spawn(bulletPrefab, bulletTimeToLive, transform.position + transform.forward * muzzleOffset, transform.rotation, muzzleVelocity, damagePerRound);
             m_LastBulletFired = Time.time;
         }
     }
