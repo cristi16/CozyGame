@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using XInputDotNetPure;
+using System.Collections.Generic;
 
 public class CozyInputManager : MonoBehaviour {
     public PlayerCharacterController[] players;
+	public int activePlayers=0;
 
     void Update()
     {
@@ -16,6 +18,7 @@ public class CozyInputManager : MonoBehaviour {
                 if(state.Buttons.A == ButtonState.Pressed)
                 {
                     players[i].gameObject.SetActive(true);
+					activePlayers++;
                 }
             }
             else
