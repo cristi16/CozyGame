@@ -47,7 +47,7 @@ public class SmoothFollow : MonoBehaviour
 			}
 		}
 
-		return Rect.MinMaxRect(minX - boundingBoxPadding, maxZ + boundingBoxPadding, maxX + boundingBoxPadding, minZ - boundingBoxPadding);
+		return Rect.MinMaxRect(minX - boundingBoxPadding, minZ - boundingBoxPadding, maxX + boundingBoxPadding, maxZ + boundingBoxPadding);
 
 	}
 
@@ -61,10 +61,10 @@ public class SmoothFollow : MonoBehaviour
 	float CalculateOrthographicSize(Rect boundingBox)
 	{
 		float orthographicSize = Camera.main.orthographicSize;
-		Vector3 topRight = new Vector3(boundingBox.x + boundingBox.width, 0f, boundingBox.y);
+		Vector3 topRight = new Vector3(boundingBox.x + boundingBox.width, boundingBox.y, 0f);
 		Vector3 topRightAsViewport = Camera.main.WorldToViewportPoint(topRight);
 
-		if (topRightAsViewport.x >= topRightAsViewport.z)
+		if (topRightAsViewport.x >= topRightAsViewport.y)
 			orthographicSize = Mathf.Abs(boundingBox.width) / Camera.main.aspect / 2f;
 		else
 			orthographicSize = Mathf.Abs(boundingBox.height) / 2f;
