@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PistolWeapon : MonoBehaviour {
+public class PistolWeapon : BaseWeapon{
     public float maxRoundsPerMinute = 45.0f;
     public GameObject bulletPrefab;
     public float muzzleVelocity = 25.0f;
@@ -11,18 +11,16 @@ public class PistolWeapon : MonoBehaviour {
 
     private float m_LastShotFired;
 
-    public bool Fire()
+    public override void StartFiring()
     {
         if(m_LastShotFired + 60.0f / maxRoundsPerMinute >= Time.time)
         {
-            return false;
+            return;
         }
 
-        GameObject bullet = Instantiate(bulletPrefab, transform.position + transform.forward * muzzleDistance, transform.rotation);
-        var bulletMovement = bullet.AddComponent<RifleBullet>();
-        bulletMovement.velocity = muzzleVelocity;
-        Destroy(bullet, bulletMaxTimeAlive);
+        RifleBullet.Spawn(bulletPrefab, bulletMaxTimeAlive, transform.position + transform.forward * muzzleDistance, transform.rotation, muzzleVelocity);
         m_LastShotFired = Time.time;
-        return true;
     }
+
+    public override void StopFiring() { }
 }

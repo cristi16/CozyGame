@@ -40,4 +40,12 @@ public class RifleBullet : MonoBehaviour {
             transform.position = previousPosition + transform.forward * moveDistance;
         }
     }
+
+    public static void Spawn(GameObject prefab, float timeToLive, Vector3 muzzlePosition, Quaternion muzzleRotation, float muzzleVelocity)
+    {
+        GameObject bullet = Instantiate(prefab, muzzlePosition, muzzleRotation);
+        var bulletMovement = bullet.AddComponent<RifleBullet>();
+        bulletMovement.velocity = muzzleVelocity;
+        Destroy(bullet, timeToLive);
+    }
 }

@@ -5,9 +5,7 @@ public class PlayerCharacterController : MonoBehaviour
 {
     public float moveSpeed = 2.0f;
     public float runSpeed = 4.0f;
-
-
-    public PistolWeapon currentWeapon;
+    public BaseWeapon startingWeaponPrefab = null;
 
     // Inputs
     [HideInInspector] public Vector2 moveInput;
@@ -15,11 +13,13 @@ public class PlayerCharacterController : MonoBehaviour
     [HideInInspector] public bool isFiring;
 
 
+    private BaseWeapon m_CurrentWeapon;
     private CharacterController m_CharacterController = null;
     private bool m_LastIsFiring = false;
 
     void Start()
     {
+        m_CurrentWeapon = Instantiate(startingWeaponPrefab.gameObject, transform).GetComponent<BaseWeapon>();
         m_CharacterController = GetComponent<CharacterController>();
     }
 
@@ -34,13 +34,17 @@ public class PlayerCharacterController : MonoBehaviour
         }
 
         // Update weapon handling
-        if(currentWeapon != null)
+        if(m_CurrentWeapon != null)
         {
             if(m_LastIsFiring != isFiring)
             {
                 if(isFiring)
                 {
-                    currentWeapon.Fire();
+                    m_CurrentWeapon.StartFiring();
+                }
+                else
+                {
+                    m_CurrentWeapon.StopFiring();
                 }
                 m_LastIsFiring = isFiring;
             }

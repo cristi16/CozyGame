@@ -11,22 +11,6 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1813143995129054}
   m_IsPrefabParent: 1
---- !u!1 &1549299603210134
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4625805428272244}
-  - component: {fileID: 114538202589239926}
-  m_Layer: 8
-  m_Name: Pistol
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1700828877008854
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,19 +57,6 @@ Transform:
   m_Father: {fileID: 4912835352561388}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!4 &4625805428272244
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1549299603210134}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4912835352561388}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4912835352561388
 Transform:
   m_ObjectHideFlags: 1
@@ -97,27 +68,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4165173439990128}
-  - {fileID: 4625805428272244}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114538202589239926
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1549299603210134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed69861fb05eea24ea51c9d7f7938916, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxRoundsPerMinute: 120
-  bulletPrefab: {fileID: 1359317241371062, guid: a463fa6907096cb42a45c96de0c1347c,
-    type: 2}
-  muzzleVelocity: 16
-  muzzleDistance: 1.2
-  bulletMaxTimeAlive: 3
 --- !u!114 &114823041622701804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,7 +84,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   runSpeed: 4
-  currentWeapon: {fileID: 114538202589239926}
+  startingWeaponPrefab: {fileID: 114686520080448562, guid: 2c6bcb3840bc8b94cbe5316a2b4591a0,
+    type: 2}
   moveInput: {x: 0, y: 0}
   lookInput: {x: 0, y: 0}
   isFiring: 0
