@@ -51,8 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed69861fb05eea24ea51c9d7f7938916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRoundsPerMinute: 75
+  maxRoundsPerMinute: 120
   bulletPrefab: {fileID: 1359317241371062, guid: a463fa6907096cb42a45c96de0c1347c,
     type: 2}
   muzzleVelocity: 16
+  muzzleDistance: 1.2
   bulletMaxTimeAlive: 3

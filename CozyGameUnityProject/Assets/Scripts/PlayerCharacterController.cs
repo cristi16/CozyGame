@@ -4,7 +4,11 @@
 public class PlayerCharacterController : MonoBehaviour
 {
     public float moveSpeed = 2.0f;
+
+    // Inputs
     [HideInInspector] public Vector2 moveInput;
+    [HideInInspector] public Vector2 lookInput;
+
     [HideInInspector] public bool isFiring;
     public PistolWeapon currentWeapon;
 
@@ -19,6 +23,12 @@ public class PlayerCharacterController : MonoBehaviour
     void Update()
     {
         m_CharacterController.SimpleMove(new Vector3(moveInput.x, 0.0f, moveInput.y) * moveSpeed);
+
+        // Rotate to look at gamepad target
+        if(lookInput != Vector2.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(new Vector3(lookInput.x, 0.0f, lookInput.y), Vector3.up);
+        }
 
         // Update weapon handling
         if(currentWeapon != null)
