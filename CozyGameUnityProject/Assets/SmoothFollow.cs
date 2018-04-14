@@ -16,17 +16,14 @@ public class SmoothFollow : MonoBehaviour
 	float oSizeMin=20f;
 	float oSizeMax=float.MaxValue;
 
-	Camera camera;
-
-	void Start(){
-		camera = Camera.main;
-	}
-
 	public void LateUpdate()
 	{
+		if (targetList == null || targetList.Count == 0)
+			return;
+		
 		Rect boundingBox = CalculateTargetsBoundingBox();
 		transform.position = CalculateCameraPosition(boundingBox);
-		camera.orthographicSize = CalculateOrthographicSize(boundingBox);
+		Camera.main.orthographicSize = CalculateOrthographicSize(boundingBox);
 	}
 
 	Rect CalculateTargetsBoundingBox(){
@@ -52,21 +49,21 @@ public class SmoothFollow : MonoBehaviour
 	{
 		Vector2 boundingBoxCenter = boundingBox.center;
 
-		return new Vector3(boundingBoxCenter.x, boundingBoxCenter.y, camera.transform.position.z);
+		return new Vector3(boundingBoxCenter.x, boundingBoxCenter.y, Camera.main.transform.position.z);
 	}
 
 	float CalculateOrthographicSize(Rect boundingBox)
 	{
-		float orthographicSize = camera.orthographicSize;
+		float orthographicSize = Camera.main.orthographicSize;
 		Vector3 topRight = new Vector3(boundingBox.x + boundingBox.width, boundingBox.y, 0f);
-		Vector3 topRightAsViewport = camera.WorldToViewportPoint(topRight);
+		Vector3 topRightAsViewport = Camera.main.WorldToViewportPoint(topRight);
 
 		if (topRightAsViewport.x >= topRightAsViewport.y)
-			orthographicSize = Mathf.Abs(boundingBox.width) / camera.aspect / 2f;
+			orthographicSize = Mathf.Abs(boundingBox.width) / Camera.main.aspect / 2f;
 		else
 			orthographicSize = Mathf.Abs(boundingBox.height) / 2f;
 
-		return Mathf.Clamp(Mathf.Lerp(camera.orthographicSize, orthographicSize, Time.deltaTime * zoomSpeed), oSizeMin, oSizeMax);
+		return Mathf.Clamp(Mathf.Lerp(Camera.main.orthographicSize, orthographicSize, Time.deltaTime * zoomSpeed), oSizeMin, oSizeMax);
 	}		
 
 }
