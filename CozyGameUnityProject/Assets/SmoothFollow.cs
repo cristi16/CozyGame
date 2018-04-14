@@ -4,70 +4,69 @@ using UnityEngine;
 
 public class SmoothFollow : MonoBehaviour
 {
-    public List<Transform> targetList;
+	[SerializeField]
+	List<Transform> targetList;
 
+	[SerializeField] 
+	float boundingBoxPadding = 2f;
 
-    float oSizeMin=20f;
+	[SerializeField] 
+	float zoomSpeed = 1.0f;
+
+	float oSizeMin=20f;
 	float oSizeMax=float.MaxValue;
 
-    public float smoothTime = 0.3f;
-    private Vector3 velocity = Vector3.zero;
+	Camera camera;
 
-    public void Update()
-    {
-        Vector3 center = Vector3.zero;
+	void Start(){
+		camera = Camera.main;
+	}
 
-        float maxX = float.MinValue;
-        float minX = float.MaxValue;
-        float maxY = float.MinValue;
-        float minY = float.MaxValue;
+	public void LateUpdate()
+	{
+		Rect boundingBox = CalculateTargetsBoundingBox();
+		transform.position = CalculateCameraPosition(boundingBox);
+		camera.orthographicSize = CalculateOrthographicSize(boundingBox);
+	}
 
-        foreach(Transform t in targetList)
-        {
-            center += t.position;
+	Rect CalculateTargetsBoundingBox(){
 
-            if (t.position.x < minX) minX = t.position.x;
-            if (t.position.x > maxX) maxX = t.position.x;
+		float maxX = float.MinValue;
+		float minX = float.MaxValue;
+		float maxY = float.MinValue;
+		float minY = float.MaxValue;
 
-            if (t.position.y < minY) minY = t.position.y;
-            if (t.position.y > maxY) maxY = t.position.y;
-        }
+		foreach(Transform t in targetList)
+		{			
+			if (t.position.x < minX) minX = t.position.x;
+			if (t.position.x > maxX) maxX = t.position.x;
 
-        if (targetList.Count > 0) {
-            center /= targetList.Count;
-        }
-
-        center.z = transform.position.z;
-
-        transform.position = Vector3.SmoothDamp(transform.position, center, ref velocity, smoothTime, 25f);
-
-        //float ortographicSize = (targetList[0].position - center).magnitude/1.5f;
-        float deltaX = maxX - minX;
-        float deltaY = maxY - minY;
-
-		float ortographicFinal;
-
-		if(deltaX>deltaY){
-			ortographicFinal = Mathf.Sqrt(deltaX)*5f;
-		} else {
-			ortographicFinal = Mathf.Sqrt(deltaY)*5f;
+			if (t.position.y < minY) minY = t.position.y;
+			if (t.position.y > maxY) maxY = t.position.y;
 		}
-       
-		/*Debug.Log("X: "+ deltaX);
-        Debug.Log("Y: " + deltaY);
-        Debug.Log("");
-		*/
 
-        //float currentAspect = (float)Screen.width / (float)Screen.height;
-		ortographicFinal = (Screen.height) * (ortographicFinal / 800f);
+		return Rect.MinMaxRect(minX - boundingBoxPadding, maxY + boundingBoxPadding, maxX + boundingBoxPadding, minY - boundingBoxPadding);
+	}
 
-		ortographicFinal = Mathf.Clamp(ortographicFinal,oSizeMin,oSizeMax);
-		Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, ortographicFinal, Time.deltaTime);        
+	Vector3 CalculateCameraPosition(Rect boundingBox)
+	{
+		Vector2 boundingBoxCenter = boundingBox.center;
 
-		Debug.Log ("Screen W" + Screen.width);
-		Debug.Log ("Screen H" + Screen.height);
-		Debug.Log ("Delta X" + deltaX);
-		Debug.Log ("Delta Y" + deltaY);
-    }
+		return new Vector3(boundingBoxCenter.x, boundingBoxCenter.y, camera.transform.position.z);
+	}
+
+	float CalculateOrthographicSize(Rect boundingBox)
+	{
+		float orthographicSize = camera.orthographicSize;
+		Vector3 topRight = new Vector3(boundingBox.x + boundingBox.width, boundingBox.y, 0f);
+		Vector3 topRightAsViewport = camera.WorldToViewportPoint(topRight);
+
+		if (topRightAsViewport.x >= topRightAsViewport.y)
+			orthographicSize = Mathf.Abs(boundingBox.width) / camera.aspect / 2f;
+		else
+			orthographicSize = Mathf.Abs(boundingBox.height) / 2f;
+
+		return Mathf.Clamp(Mathf.Lerp(camera.orthographicSize, orthographicSize, Time.deltaTime * zoomSpeed), oSizeMin, oSizeMax);
+	}		
 
 }
