@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class CozyInputManager : MonoBehaviour {
     public PlayerCharacterController[] players;
+
+	[HideInInspector]
 	public int activePlayers=0;
 
     void Update()

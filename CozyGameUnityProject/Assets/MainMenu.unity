@@ -179,6 +179,12 @@ Prefab:
       propertyPath: runSpeed
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114823041622701804, guid: d13a32adfc6d25b428b4fc156c0cb57b,
+        type: 2}
+      propertyPath: startingWeaponPrefab
+      value: 
+      objectReference: {fileID: 114686520080448562, guid: 2c6bcb3840bc8b94cbe5316a2b4591a0,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d13a32adfc6d25b428b4fc156c0cb57b, type: 2}
   m_IsPrefabParent: 0
@@ -306,7 +312,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1179145505}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!108 &210201677
 Light:
@@ -501,6 +507,12 @@ Prefab:
       propertyPath: runSpeed
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114823041622701804, guid: d13a32adfc6d25b428b4fc156c0cb57b,
+        type: 2}
+      propertyPath: startingWeaponPrefab
+      value: 
+      objectReference: {fileID: 114686520080448562, guid: 2c6bcb3840bc8b94cbe5316a2b4591a0,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d13a32adfc6d25b428b4fc156c0cb57b, type: 2}
   m_IsPrefabParent: 0
@@ -536,7 +548,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1612380746}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!108 &1006109137
 Light:
@@ -601,7 +613,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 657181668}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!108 &1123401379
 Light:
@@ -704,6 +716,12 @@ Prefab:
       propertyPath: runSpeed
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114823041622701804, guid: d13a32adfc6d25b428b4fc156c0cb57b,
+        type: 2}
+      propertyPath: startingWeaponPrefab
+      value: 
+      objectReference: {fileID: 114686520080448562, guid: 2c6bcb3840bc8b94cbe5316a2b4591a0,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d13a32adfc6d25b428b4fc156c0cb57b, type: 2}
   m_IsPrefabParent: 0
@@ -835,6 +853,12 @@ Prefab:
       propertyPath: runSpeed
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114823041622701804, guid: d13a32adfc6d25b428b4fc156c0cb57b,
+        type: 2}
+      propertyPath: startingWeaponPrefab
+      value: 
+      objectReference: {fileID: 114686520080448562, guid: 2c6bcb3840bc8b94cbe5316a2b4591a0,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d13a32adfc6d25b428b4fc156c0cb57b, type: 2}
   m_IsPrefabParent: 0
@@ -870,7 +894,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5339827}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!108 &2010201910
 Light:
