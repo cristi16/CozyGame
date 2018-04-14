@@ -16,12 +16,14 @@ public class SmoothFollow : MonoBehaviour
 	float oSizeMin=20f;
 	float oSizeMax=float.MaxValue;
 
+	public Rect boundingBox;
+
 	public void LateUpdate()
 	{
 		if (targetList == null || targetList.Count == 0)
 			return;
 		
-		Rect boundingBox = CalculateTargetsBoundingBox();
+		boundingBox = CalculateTargetsBoundingBox();
 		transform.position = CalculateCameraPosition(boundingBox);
 		Camera.main.orthographicSize = CalculateOrthographicSize(boundingBox);
 	}
