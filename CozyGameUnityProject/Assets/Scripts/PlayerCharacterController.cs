@@ -4,13 +4,16 @@
 public class PlayerCharacterController : MonoBehaviour
 {
     public float moveSpeed = 2.0f;
+    public float runSpeed = 4.0f;
+
+
+    public PistolWeapon currentWeapon;
 
     // Inputs
     [HideInInspector] public Vector2 moveInput;
     [HideInInspector] public Vector2 lookInput;
-
     [HideInInspector] public bool isFiring;
-    public PistolWeapon currentWeapon;
+
 
     private CharacterController m_CharacterController = null;
     private bool m_LastIsFiring = false;
