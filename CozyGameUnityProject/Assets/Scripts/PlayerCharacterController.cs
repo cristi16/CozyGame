@@ -50,4 +50,9 @@ public class PlayerCharacterController : MonoBehaviour
             }
         }
     }
+
+    public void ReceiveDamage(float damage)
+    {
+        
+    }
 }
