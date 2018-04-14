@@ -2,12 +2,29 @@
 using XInputDotNetPure;
 
 public class CozyInputManager : MonoBehaviour {
-    public PlayerCharacterController player0;
+    public PlayerCharacterController[] players;
 
     void Update()
     {
-        GamePadState state = GamePad.GetState(0, GamePadDeadZone.Circular);
-        player0.moveInput = new Vector2(state.ThumbSticks.Left.X, state.ThumbSticks.Left.Y);
-        player0.isFiring = state.Triggers.Right > 0.5f;
+        for(int i = 0; i < 4; ++i)
+        {
+            GamePadState state = GamePad.GetState((PlayerIndex)i, GamePadDeadZone.Circular);
+            
+            if(!players[i].gameObject.activeSelf)
+            {
+                // Player log in by pressing A
+                if(state.Buttons.A == ButtonState.Pressed)
+                {
+                    players[i].gameObject.SetActive(true);
+                }
+            }
+            else
+            {
+                // Handle logged in player input
+                players[i].moveInput = new Vector2(state.ThumbSticks.Left.X, state.ThumbSticks.Left.Y);
+                players[i].lookInput = new Vector2(state.ThumbSticks.Right.X, state.ThumbSticks.Right.Y);
+                players[i].isFiring = state.Triggers.Right > 0.5f;
+            }
+        }
     }
 }
