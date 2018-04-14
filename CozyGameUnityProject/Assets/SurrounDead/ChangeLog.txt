@@ -1,0 +1,36 @@
+Update v3.1
+NEW - 102 new assets
+- added 13 cabin related assets
+(chimney, porch_railing, stairs x 2, Stove02 with modular parts, door, window, round pillar, corner pillar)
+- added 23 Light props with emmision maps (lamps, lantern, lightswitch, sockets)
+- added 33 Nature assets (cut coniferous trees, birch trees,cut birch trees, cattail, mushrooms, waterlily)
+- added HIT animation to all trees, animation ranges (0-60 Sway , 60-70 Hit)
+- added 23 props (campfire, cooking pots, frying pan, boat, rafts, modular pier, tent, stove portable, wood pile)
+- added 10 basic resources (rope, branches, logs, metal scraps, wood planks, rocks)
+- added a few wall textures
+- added a floor texture
+- added 2 new scenes (Cabin and Camp)
+
+CHANGES
+- all doors have thresholds
+- all static trees have been replaced with animated trees, now all trees have animations and backface because there were too many variations.
+- tree bone renamed, now all share the same name
+- fixed some roof textures
+- chimney mesh cleanup and uv rescale
+- windows glass as a separated mesh
+
+
+Update v3.0 
+NOTE*** Strongly recomanded to delete the old SurrounDead folder before importing this new version or import in a new project. 
+
+- added interior props (121 new assets) 
+- improved Barricades texture 
+- improved Props texture and added a few more model variations 
+- added 9 new food and drinks Items 
+- added transparent/emissive glass for windows but the old, opaque one can still be used 
+- added a few wall textures 
+- renamed a few assests for a more consistent naming 
+- removed houses prefabs because prefab links were broken due to being nested and were not updated accordingly 
+- replaced the scene demo with new ones
+
+
