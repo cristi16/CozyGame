@@ -21,6 +21,7 @@ public class StateController : MonoBehaviour {
 	void Awake () 
 	{
 		navMeshAgent = GetComponent<NavMeshAgent> ();
+        currentState.EnterState(this);
 	}
 
 	public void TransitionToState(State nextState)
@@ -60,13 +61,16 @@ public class StateController : MonoBehaviour {
 		if (currentState != null && eyes != null)
 		{
 			Gizmos.color = currentState.sceneGizmoColor;
-			Gizmos.DrawWireSphere(eyes.position, enemyStats.lookSphereCastRadius);
+			Gizmos.DrawWireSphere(eyes.position, enemyStats.attackSphereCastRadius);
 
-		    Gizmos.color = Color.yellow;
+		    Gizmos.color = enemyStats.wanderRadiusColor;
+		    Gizmos.DrawWireSphere(transform.position, enemyStats.wanderRadius);
+
+            Gizmos.color = enemyStats.scanForPlayerRadiusColor;
             Gizmos.DrawWireSphere(transform.position, enemyStats.scanForPlayerRadius);
 
-		    Gizmos.color = Color.green;
-		    Gizmos.DrawWireSphere(transform.position, enemyStats.listenForNoiseRadius);
+            Gizmos.color = enemyStats.listenForNoiseRadiusColor;
+            Gizmos.DrawWireSphere(transform.position, enemyStats.listenForNoiseRadius);
         }
 	}
 
