@@ -1043,7 +1043,7 @@ MonoBehaviour:
   oSizeRatio: 2
   fieldViewMin: 5
   fieldViewMax: 200
-  fieldViewRatio: 1
+  fieldViewRatio: 2
 --- !u!114 &114926892874175136
 MonoBehaviour:
   m_ObjectHideFlags: 1
