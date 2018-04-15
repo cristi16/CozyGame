@@ -14,8 +14,14 @@ public class SmoothFollow : MonoBehaviour
 	[SerializeField] 
 	float zoomSpeed = 1.0f;
 
-	float oSizeMin=20f;
-	float oSizeMax=float.MaxValue;
+	[SerializeField] 
+	float oSizeMin=5f;
+
+	[SerializeField] 
+	float oSizeMax=200f;
+
+	[SerializeField]
+	float oSizeRatio=2f;
 
 	Rect boundingBox;
 
@@ -65,9 +71,9 @@ public class SmoothFollow : MonoBehaviour
 		Vector3 topRightAsViewport = Camera.main.WorldToViewportPoint(topRight);
 
 		if (topRightAsViewport.x >= topRightAsViewport.y)
-			orthographicSize = Mathf.Abs(boundingBox.width) / Camera.main.aspect / 2f;
+			orthographicSize = Mathf.Abs(boundingBox.width) / Camera.main.aspect / oSizeRatio;
 		else
-			orthographicSize = Mathf.Abs(boundingBox.height) / 2f;
+			orthographicSize = Mathf.Abs(boundingBox.height) / oSizeRatio;
 
 		return Mathf.Clamp(Mathf.Lerp(Camera.main.orthographicSize, orthographicSize, Time.deltaTime * zoomSpeed), oSizeMin, oSizeMax);
 	}		
