@@ -36,10 +36,11 @@ public class SmoothFollow : MonoBehaviour
 
 	public void LateUpdate()
 	{
-		if (gameManager.activePlayers.Count==0)
-			return;
-		
-		boundingBox = CalculateTargetsBoundingBox();
+        var activePlayers = GameManager.Instance.GetActivePlayers();
+        if (activePlayers.Count == 0)
+            return;
+
+		boundingBox = CalculateTargetsBoundingBox(activePlayers);
 		transform.position = CalculateCameraPosition(boundingBox);
 
 		if (Camera.main.orthographic)
@@ -48,14 +49,14 @@ public class SmoothFollow : MonoBehaviour
 			Camera.main.fieldOfView = CalculateFieldOfView (boundingBox);
 	}
 
-	Rect CalculateTargetsBoundingBox(){
-
+	Rect CalculateTargetsBoundingBox(List<PlayerCharacterController> activePlayers)
+    { 
 		float maxX = float.MinValue;
 		float minX = float.MaxValue;
 		float maxZ = float.MinValue;
 		float minZ = float.MaxValue;
 
-		foreach (PlayerCharacterController pc in gameManager.players) {
+		foreach (PlayerCharacterController pc in activePlayers) {
 			if (pc.gameObject.activeSelf) {
 				Transform t = pc.transform;
 				if (t.position.x < minX) minX = t.position.x;
