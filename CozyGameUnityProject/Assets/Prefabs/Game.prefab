@@ -321,6 +321,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4977628284654296}
   - component: {fileID: 114695069152484750}
+  - component: {fileID: 114486544772460198}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -884,6 +885,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'P1: 250 kills'
+--- !u!114 &114486544772460198
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1930759798765636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ebba74de7911414e8e6fce52a7ef2db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114491775544884756
 MonoBehaviour:
   m_ObjectHideFlags: 1
