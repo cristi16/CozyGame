@@ -13,7 +13,10 @@ public class EnemyStats : ScriptableObject {
 	public float attackRate = 1f;
 	public int attackDamage = 50;
 
-    [Header("WanderState")]
+    [Header("WanderAction")]
     public float wanderRadius = 2f;
     public float scanForPlayerRadius = 5f;
+    [Header("listenAction")]
+    public float listenForNoiseRadius = 10f;
+    public AnimationCurve noiseRolloff = new AnimationCurve();
 }

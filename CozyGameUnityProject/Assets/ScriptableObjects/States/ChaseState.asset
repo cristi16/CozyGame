@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b122725e68a54f4ab757ebf1ffecda7, type: 3}
-  m_Name: ChaseScanner
+  m_Name: ChaseState
   m_EditorClassIdentifier: 
   actions:
   - {fileID: 11400000, guid: cc162182cc3aac44b95586c55eb0901f, type: 2}

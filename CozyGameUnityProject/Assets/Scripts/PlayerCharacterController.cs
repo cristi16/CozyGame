@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerCharacterController : MonoBehaviour
+public class PlayerCharacterController : MonoBehaviour, IGenerateNoise
 {
     public float moveSpeed = 2.0f;
     public float runSpeed = 4.0f;
+    public float moveNoiseAmount = 3f;
+    public float runNoiseAmount = 6f;
     public BaseWeapon startingWeaponPrefab = null;
 
     // Inputs
     [HideInInspector] public Vector2 moveInput;
     [HideInInspector] public Vector2 lookInput;
     [HideInInspector] public bool isFiring;
+    [HideInInspector] public bool isRunning;
 
 
     private BaseWeapon m_CurrentWeapon;
@@ -54,5 +57,25 @@ public class PlayerCharacterController : MonoBehaviour
     public void ReceiveDamage(float damage)
     {
         
+    }
+
+
+    public NoiseData GetNoiseData()
+    {
+        return new NoiseData()
+        {
+            amount = GetNoiseAmount(),
+            source = transform.position
+        };
+    }
+
+    public float GetNoiseAmount()
+    {
+        if (moveInput == Vector2.zero)
+        {
+            return 0;
+        }
+
+        return isRunning ? runNoiseAmount : moveNoiseAmount;
     }
 }

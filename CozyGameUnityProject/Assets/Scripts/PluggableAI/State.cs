@@ -42,7 +42,12 @@ public class State : ScriptableObject
 			else
 			{
 				controller.TransitionToState(transitions[i].falseState);
-			}
+            }
+            // if we changed state, ignore other transitions
+		    if (controller.currentState != this)
+		    {
+		        break;
+		    }
 		}
 	}
 

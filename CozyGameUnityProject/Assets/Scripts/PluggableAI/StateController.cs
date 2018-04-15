@@ -12,6 +12,7 @@ public class StateController : MonoBehaviour {
 
     [HideInInspector] public NavMeshAgent navMeshAgent;
 	[HideInInspector] public Transform chaseTarget;
+    [HideInInspector] public Vector3 followNoiseTarget;
 	[HideInInspector] public float stateTimeElapsed;
     [HideInInspector] public Vector3 nextWanderTarget;
 
@@ -25,7 +26,10 @@ public class StateController : MonoBehaviour {
 	public void TransitionToState(State nextState)
 	{
 		if (nextState == remainState) return;
-
+	    if (nextState != currentState)
+	    {
+	        Debug.Log("Transition To State: " + nextState.name);
+	    }
 	    stateTimeElapsed = 0;
 	    currentState.ExitState(this);
         currentState = nextState;
@@ -60,7 +64,10 @@ public class StateController : MonoBehaviour {
 
 		    Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, enemyStats.scanForPlayerRadius);
-		}
+
+		    Gizmos.color = Color.green;
+		    Gizmos.DrawWireSphere(transform.position, enemyStats.listenForNoiseRadius);
+        }
 	}
 
 }
