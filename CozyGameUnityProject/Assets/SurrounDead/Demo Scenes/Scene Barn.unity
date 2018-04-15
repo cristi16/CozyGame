@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.2
   m_LinearFogStart: 45.2
   m_LinearFogEnd: 81.1
-  m_AmbientSkyColor: {r: 0.25951555, g: 0.52153677, b: 0.88235295, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 1, g: 1, b: 1, a: 1}
   m_AmbientGroundColor: {r: 0.64705884, g: 0.44506627, b: 0.26167822, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 1
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 3
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 1959216544}
+  m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &4
 LightmapSettings:
@@ -3143,6 +3143,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 1418489447773652, guid: be4b546c63d74be4b90ca1ed0226ecc7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be4b546c63d74be4b90ca1ed0226ecc7, type: 2}
   m_IsPrefabParent: 0
@@ -3571,7 +3575,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4291132027528784, guid: ae2c5648decd3384385c11e781d10772, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 7.6
+      value: 10.2
       objectReference: {fileID: 0}
     - target: {fileID: 4291132027528784, guid: ae2c5648decd3384385c11e781d10772, type: 2}
       propertyPath: m_LocalRotation.x
@@ -3938,6 +3942,10 @@ Prefab:
     - target: {fileID: 1418489447773652, guid: be4b546c63d74be4b90ca1ed0226ecc7, type: 2}
       propertyPath: m_Name
       value: Zombie (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418489447773652, guid: be4b546c63d74be4b90ca1ed0226ecc7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be4b546c63d74be4b90ca1ed0226ecc7, type: 2}
@@ -4862,6 +4870,10 @@ Prefab:
     - target: {fileID: 1418489447773652, guid: be4b546c63d74be4b90ca1ed0226ecc7, type: 2}
       propertyPath: m_Name
       value: Zombie (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418489447773652, guid: be4b546c63d74be4b90ca1ed0226ecc7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be4b546c63d74be4b90ca1ed0226ecc7, type: 2}
@@ -5832,6 +5844,10 @@ Prefab:
     - target: {fileID: 1418489447773652, guid: be4b546c63d74be4b90ca1ed0226ecc7, type: 2}
       propertyPath: m_Name
       value: Zombie (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418489447773652, guid: be4b546c63d74be4b90ca1ed0226ecc7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be4b546c63d74be4b90ca1ed0226ecc7, type: 2}
@@ -7354,6 +7370,10 @@ Prefab:
     - target: {fileID: 1418489447773652, guid: be4b546c63d74be4b90ca1ed0226ecc7, type: 2}
       propertyPath: m_Name
       value: Zombie (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418489447773652, guid: be4b546c63d74be4b90ca1ed0226ecc7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be4b546c63d74be4b90ca1ed0226ecc7, type: 2}
@@ -13956,6 +13976,10 @@ Prefab:
       propertyPath: m_Name
       value: Zombie (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1418489447773652, guid: be4b546c63d74be4b90ca1ed0226ecc7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be4b546c63d74be4b90ca1ed0226ecc7, type: 2}
   m_IsPrefabParent: 0
@@ -14465,7 +14489,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.8147058, b: 0.53676474, a: 1}
-  m_Intensity: 1.56
+  m_Intensity: 0.25
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
