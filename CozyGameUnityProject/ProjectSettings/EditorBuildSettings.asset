@@ -9,5 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 4db1916997d9cc34288010c287925243
   - enabled: 1
+    path: Assets/Scenes/Level_Camp.unity
+    guid: bb272d518e3213e49bc58bd473dc8d5d
+  - enabled: 1
     path: Assets/Scenes/Level_GasStation.unity
     guid: 6e34764ca4292f84ebf636d1d57dc141

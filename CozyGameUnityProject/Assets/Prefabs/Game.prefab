@@ -670,7 +670,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1634788086371266}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.27, y: 0.5, z: -22.65}
+  m_LocalPosition: {x: 18.3, y: 0.5, z: -22.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4735982821850264}
@@ -698,7 +698,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1391599042537662}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.08, y: 0.5, z: -19.78}
+  m_LocalPosition: {x: 18.08, y: 0.5, z: -20.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4534232457145676}
@@ -713,7 +713,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1419414652842520}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.21, y: 0.5, z: -21.2}
+  m_LocalPosition: {x: 16.02, y: 0.5, z: -21.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4463811672713884}
@@ -728,7 +728,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1321759287741942}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.77, y: 0.5, z: -22.25}
+  m_LocalPosition: {x: 16.67, y: 0.5, z: -22.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4599946177213178}
@@ -1273,8 +1273,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  moveSpeed: 5
-  runSpeed: 2.5
+  moveSpeed: 4
+  runSpeed: 2
   moveNoiseAmount: 3
   runNoiseAmount: 6
   startingWeaponPrefab: {fileID: 114686520080448562, guid: 2c6bcb3840bc8b94cbe5316a2b4591a0,
@@ -1326,8 +1326,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  moveSpeed: 5
-  runSpeed: 2.5
+  moveSpeed: 4
+  runSpeed: 2
   moveNoiseAmount: 3
   runNoiseAmount: 6
   startingWeaponPrefab: {fileID: 114686520080448562, guid: 2c6bcb3840bc8b94cbe5316a2b4591a0,
@@ -1717,8 +1717,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  moveSpeed: 5
-  runSpeed: 2.5
+  moveSpeed: 4
+  runSpeed: 2
   moveNoiseAmount: 3
   runNoiseAmount: 6
   startingWeaponPrefab: {fileID: 114686520080448562, guid: 2c6bcb3840bc8b94cbe5316a2b4591a0,
@@ -1743,8 +1743,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  moveSpeed: 5
-  runSpeed: 2.5
+  moveSpeed: 4
+  runSpeed: 2
   moveNoiseAmount: 3
   runNoiseAmount: 6
   startingWeaponPrefab: {fileID: 114686520080448562, guid: 2c6bcb3840bc8b94cbe5316a2b4591a0,
@@ -2004,7 +2004,7 @@ MonoBehaviour:
   oSizeRatio: 2
   fieldViewMin: 5
   fieldViewMax: 200
-  fieldViewRatio: 2
+  fieldViewRatio: 1.5
 --- !u!114 &114781021441997098
 MonoBehaviour:
   m_ObjectHideFlags: 1
