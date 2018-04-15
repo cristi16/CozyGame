@@ -32,6 +32,7 @@ public class CozyInputManager : MonoBehaviour {
                 players[i].moveInput = new Vector2(state.ThumbSticks.Left.X, state.ThumbSticks.Left.Y);
                 players[i].lookInput = new Vector2(state.ThumbSticks.Right.X, state.ThumbSticks.Right.Y);
                 players[i].isFiring = state.Triggers.Right > 0.5f;
+                players[i].isRunning = state.Buttons.LeftShoulder == ButtonState.Pressed;
             }
         }
     }

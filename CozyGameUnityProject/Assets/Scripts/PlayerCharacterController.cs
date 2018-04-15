@@ -15,20 +15,21 @@ public class PlayerCharacterController : MonoBehaviour, IGenerateNoise
     [HideInInspector] public bool isFiring;
     [HideInInspector] public bool isRunning;
 
-
     private BaseWeapon m_CurrentWeapon;
+
     private CharacterController m_CharacterController = null;
     private bool m_LastIsFiring = false;
 
     void Start()
     {
-        m_CurrentWeapon = Instantiate(startingWeaponPrefab.gameObject, transform).GetComponent<BaseWeapon>();
         m_CharacterController = GetComponent<CharacterController>();
+        SetCurrentWeaponSlot(startingWeaponPrefab);
     }
 
     void Update()
     {
-        m_CharacterController.SimpleMove(new Vector3(moveInput.x, 0.0f, moveInput.y) * moveSpeed);
+        Vector3 moveInput3D = new Vector3(moveInput.x, 0.0f, moveInput.y);
+        m_CharacterController.SimpleMove(moveInput3D * (isRunning ? runSpeed : moveSpeed));
 
         // Rotate to look at gamepad target
         if(lookInput != Vector2.zero)
@@ -57,6 +58,22 @@ public class PlayerCharacterController : MonoBehaviour, IGenerateNoise
     public void ReceiveDamage(float damage)
     {
         
+    }
+
+    public void SetCurrentWeaponSlot(BaseWeapon weaponPrefab)
+    {
+        // Destroy current weapon
+        if(m_CurrentWeapon != null)
+        {
+            Destroy(m_CurrentWeapon.gameObject);
+        }
+        m_CurrentWeapon = null;
+
+        // Spawn in new weapon
+        if(weaponPrefab != null)
+        {
+            m_CurrentWeapon = Instantiate(weaponPrefab.gameObject, transform).GetComponent<BaseWeapon>();
+        }
     }
 
 
