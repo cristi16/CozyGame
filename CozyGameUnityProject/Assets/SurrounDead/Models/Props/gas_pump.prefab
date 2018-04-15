@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3385514}
   - component: {fileID: 2328170}
   - component: {fileID: 6561794}
+  - component: {fileID: 114215757507447406}
   m_Layer: 0
   m_Name: gas_pump
   m_TagString: Untagged
@@ -24,8 +25,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178088}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.11, z: 0}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0.0000023245811}
+  m_LocalPosition: {x: 20, y: 0, z: 15.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -95,3 +96,18 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 178088}
   m_IsPrefabParent: 1
+--- !u!114 &114215757507447406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408b92efa33be7d4c96b3809d9178e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 1
+  explosionPrefab: {fileID: 1000010608846784, guid: 6747b1742d70743a8aff8594e708b2f7,
+    type: 2}
+  explosionScale: 0.5
