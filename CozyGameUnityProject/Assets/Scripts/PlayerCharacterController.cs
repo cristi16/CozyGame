@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerCharacterController : MonoBehaviour, IGenerateNoise
+public class PlayerCharacterController : MonoBehaviour, IGenerateNoise, IExplosionHitListener
 {
 	public float maxHealth = 100.0f;
 	public float moveSpeed = 2.0f;
@@ -114,5 +114,10 @@ public class PlayerCharacterController : MonoBehaviour, IGenerateNoise
         }
 
         return isRunning ? runNoiseAmount : moveNoiseAmount;
+    }
+
+    public void OnExplosionHit(float damage)
+    {
+        ReceiveDamage(damage);
     }
 }
