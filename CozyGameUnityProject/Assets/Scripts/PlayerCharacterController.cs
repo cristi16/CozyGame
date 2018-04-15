@@ -3,6 +3,7 @@
 [RequireComponent(typeof(CharacterController))]
 public class PlayerCharacterController : MonoBehaviour, IGenerateNoise
 {
+    public float health = 100.0f;
     public float moveSpeed = 2.0f;
     public float runSpeed = 4.0f;
     public float moveNoiseAmount = 3f;
@@ -61,7 +62,16 @@ public class PlayerCharacterController : MonoBehaviour, IGenerateNoise
 
     public void ReceiveDamage(float damage)
     {
-        
+        health -= damage;
+        if(health <= 0.0f)
+        {
+            HandleDeath();
+        }
+    }
+
+    private void HandleDeath()
+    {
+        Destroy(gameObject);
     }
 
     public void SetCurrentWeaponSlot(BaseWeapon weaponPrefab)
