@@ -5,9 +5,6 @@ using UnityEngine;
 public class SmoothFollow : MonoBehaviour
 {
 	
-	[SerializeField]
-	CozyInputManager gameManager;
-
 	[SerializeField] 
 	float boundingBoxPadding = 2f;
 

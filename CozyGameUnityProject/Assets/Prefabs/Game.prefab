@@ -338,6 +338,7 @@ GameObject:
   - component: {fileID: 4977628284654296}
   - component: {fileID: 114695069152484750}
   - component: {fileID: 114486544772460198}
+  - component: {fileID: 114973764335624202}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -365,7 +366,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1486053964324886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 118, y: 0, z: 105}
+  m_LocalPosition: {x: 15.9, y: 0, z: 10.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4275250102856540}
@@ -774,6 +775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb60b0ca9f22f34ea798d07ce439f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
   moveSpeed: 7
   runSpeed: 5
   moveNoiseAmount: 3
@@ -798,6 +800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb60b0ca9f22f34ea798d07ce439f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
   moveSpeed: 7
   runSpeed: 5
   moveNoiseAmount: 3
@@ -827,7 +830,6 @@ MonoBehaviour:
   - {fileID: 114646751099560898}
   - {fileID: 114438902379056000}
   - {fileID: 114491775544884756}
-  gameManager: {fileID: 114695069152484750}
 --- !u!114 &114438902379056000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -916,6 +918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb60b0ca9f22f34ea798d07ce439f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
   moveSpeed: 7
   runSpeed: 5
   moveNoiseAmount: 3
@@ -940,6 +943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb60b0ca9f22f34ea798d07ce439f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
   moveSpeed: 7
   runSpeed: 5
   moveNoiseAmount: 3
@@ -1030,12 +1034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb2da9ce358a5642b480a8492023e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players:
-  - {fileID: 114326659236205134}
-  - {fileID: 114214162308114422}
-  - {fileID: 114575715442527334}
-  - {fileID: 114572314861644312}
-  activePlayers: []
+  allowJoinInProgress: 1
 --- !u!114 &114742807632642370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1047,7 +1046,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43466f4e05fe5bf43aa6bfd92e2cd1a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 114695069152484750}
   boundingBoxPadding: 15
   zoomSpeed: 0.5
   oSizeMin: 5
@@ -1072,6 +1070,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114973764335624202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1930759798765636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289c9ec2cbec1ef42829c4cb29f1f032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players:
+  - {fileID: 114326659236205134}
+  - {fileID: 114214162308114422}
+  - {fileID: 114575715442527334}
+  - {fileID: 114572314861644312}
 --- !u!124 &124354198279263482
 Behaviour:
   m_ObjectHideFlags: 1

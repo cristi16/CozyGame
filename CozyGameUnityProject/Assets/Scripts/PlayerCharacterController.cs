@@ -71,7 +71,8 @@ public class PlayerCharacterController : MonoBehaviour, IGenerateNoise
 
     private void HandleDeath()
     {
-        Destroy(gameObject);
+		gameObject.SetActive (false);
+        //Destroy(gameObject);
     }
 
     public void SetCurrentWeaponSlot(BaseWeapon weaponPrefab)
