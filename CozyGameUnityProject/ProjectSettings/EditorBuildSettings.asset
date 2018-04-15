@@ -9,5 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 4db1916997d9cc34288010c287925243
   - enabled: 1
-    path: Assets/Scenes/Prototype_MovementShooting.unity
-    guid: cb647eb5357dc454d9be5dab2ada558d
+    path: Assets/Scenes/Level_GasStation.unity
+    guid: 6e34764ca4292f84ebf636d1d57dc141

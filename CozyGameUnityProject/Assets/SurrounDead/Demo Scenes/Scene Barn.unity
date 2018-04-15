@@ -2234,10 +2234,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408b92efa33be7d4c96b3809d9178e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 1
   explosionPrefab: {fileID: 1000010608846784, guid: 6747b1742d70743a8aff8594e708b2f7,
     type: 2}
+  strength: 1
   explosionScale: 0.5
+  explosionDamage: 100
+  explosionRange: 5
 --- !u!4 &238333476 stripped
 Transform:
   m_PrefabParentObject: {fileID: 468662, guid: 630ded168e4b0ef43a74cf1c9a177bc2, type: 2}
@@ -3705,6 +3707,11 @@ Prefab:
         type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108305691175186198, guid: ae2c5648decd3384385c11e781d10772,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ae2c5648decd3384385c11e781d10772, type: 2}

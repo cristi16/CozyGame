@@ -22,9 +22,16 @@ public class StateController : MonoBehaviour {
 	{
 		navMeshAgent = GetComponent<NavMeshAgent> ();
         currentState.EnterState(this);
+
+	    ZombieSpawner.zombieCount++;
 	}
 
-	public void TransitionToState(State nextState)
+    void OnDestroy()
+    {
+	    ZombieSpawner.zombieCount--;
+    }
+
+    public void TransitionToState(State nextState)
 	{
 		if (nextState == remainState) return;
 	    if (nextState != currentState)

@@ -10,7 +10,7 @@ public class ListenDecision : Decision
 
     bool HeardNoise(StateController controller)
     {
-        Collider[] colliders = Physics.OverlapSphere(controller.transform.position, controller.enemyStats.listenForNoiseRadius);
+        Collider[] colliders = Physics.OverlapSphere(controller.transform.position, controller.enemyStats.listenForNoiseRadius, 1 << LayerMask.NameToLayer("Players"));
         if (colliders.Length > 0)
         {
             IGenerateNoise loudestNoiseSource = null;
