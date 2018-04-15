@@ -149,12 +149,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  runSpeed: 8
+  runSpeed: 15
+  moveNoiseAmount: 3
+  runNoiseAmount: 6
   startingWeaponPrefab: {fileID: 114686520080448562, guid: 2c6bcb3840bc8b94cbe5316a2b4591a0,
     type: 2}
   moveInput: {x: 0, y: 0}
   lookInput: {x: 0, y: 0}
   isFiring: 0
+  isRunning: 0
 --- !u!143 &143932936270801662
 CharacterController:
   m_ObjectHideFlags: 1

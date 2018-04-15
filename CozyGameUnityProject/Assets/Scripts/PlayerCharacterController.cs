@@ -28,7 +28,8 @@ public class PlayerCharacterController : MonoBehaviour, IGenerateNoise
 
     void Update()
     {
-        m_CharacterController.SimpleMove(new Vector3(moveInput.x, 0.0f, moveInput.y) * moveSpeed);
+        Vector3 moveInput3D = new Vector3(moveInput.x, 0.0f, moveInput.y);
+        m_CharacterController.SimpleMove(moveInput3D * (isRunning ? runSpeed : moveSpeed));
 
         // Rotate to look at gamepad target
         if(lookInput != Vector2.zero)
