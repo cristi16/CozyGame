@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eedf85d015b0f741a8dd3f46e97d264, type: 3}
   m_Name: DefaultEnemyStats
   m_EditorClassIdentifier: 
-  attackRange: 1.1
-  attackSphereCastRadius: 0.12
-  attackRate: 1
-  attackDamage: 10
+  attackRange: 1.5
+  attackSphereCastRadius: 0.22
+  attackRate: 0.5
+  attackDamage: 5
   wanderRadius: 2.28
   wanderRadiusColor: {r: 0.038116343, g: 0.053547446, b: 0.1102941, a: 1}
   scanForPlayerRadius: 2.52

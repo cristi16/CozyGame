@@ -8,6 +8,9 @@ public class PlayerScoreManager : MonoBehaviour {
 	[SerializeField]
 	Text[] playerScoreText;
 
+	[SerializeField]
+	FancyHealthBar[] playerHealthBars;
+
 	void Update ()
     {
 		for (int i = 0; i < 4; i++)
@@ -22,6 +25,17 @@ public class PlayerScoreManager : MonoBehaviour {
                 playerScoreText [i].text = "";
                 playerScoreText [i].gameObject.SetActive (false);
             }
+		}
+	}
+
+	void OnGUI(){
+		for (int i = 0; i < 4; i++)
+		{
+			if (CozyInputManager.Instance.IsControllerPlaying (i)) {
+				playerHealthBars [i].gameObject.SetActive (true);
+				playerHealthBars [i].UpdateHealthBar (GameManager.Instance.players [i].health, GameManager.Instance.players [i].maxHealth);
+				playerHealthBars [i].UpdateKillCount (GameManager.Instance.players [i].killCount);
+			}
 		}
 	}
 

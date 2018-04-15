@@ -3,12 +3,15 @@
 [RequireComponent(typeof(CharacterController))]
 public class PlayerCharacterController : MonoBehaviour, IGenerateNoise
 {
-    public float health = 100.0f;
-    public float moveSpeed = 2.0f;
-    public float runSpeed = 4.0f;
-    public float moveNoiseAmount = 3f;
-    public float runNoiseAmount = 6f;
-    public BaseWeapon startingWeaponPrefab = null;
+	public float maxHealth = 100.0f;
+	public float moveSpeed = 2.0f;
+	public float runSpeed = 4.0f;
+	public float moveNoiseAmount = 3f;
+	public float runNoiseAmount = 6f;
+	public BaseWeapon startingWeaponPrefab = null;
+
+	[HideInInspector]
+	public float health;    
 
     // Inputs
     [HideInInspector] public Vector2 moveInput;
@@ -29,6 +32,7 @@ public class PlayerCharacterController : MonoBehaviour, IGenerateNoise
     {
         m_CharacterController = GetComponent<CharacterController>();
         SetCurrentWeaponSlot(startingWeaponPrefab);
+		health = maxHealth;
     }
 
     void Update()
