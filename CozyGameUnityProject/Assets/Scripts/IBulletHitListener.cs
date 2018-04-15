@@ -5,7 +5,7 @@ using UnityEngine;
 public struct BulletHitInfo
 {
     public PlayerCharacterController instigator;
-    public float damage;
+    public int damage;
 }
 
 public interface IBulletHitListener {

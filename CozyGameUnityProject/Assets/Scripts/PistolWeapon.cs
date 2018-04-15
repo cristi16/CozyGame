@@ -8,7 +8,7 @@ public class PistolWeapon : BaseWeapon{
     public float muzzleVelocity = 25.0f;
     public float muzzleDistance = 0.6f;
     public float bulletMaxTimeAlive = 3.0f;
-    public float damagePerRound = 20.0f;
+    public int damagePerRound = 20;
 
     private float m_LastShotFired;
 
@@ -19,7 +19,7 @@ public class PistolWeapon : BaseWeapon{
             return;
         }
 
-        RifleBullet.Spawn(bulletPrefab, bulletMaxTimeAlive, transform.position + transform.forward * muzzleDistance, transform.rotation, muzzleVelocity, damagePerRound);
+		RifleBullet.Spawn(bulletPrefab, bulletMaxTimeAlive, transform.position + transform.forward * muzzleDistance, transform.rotation, muzzleVelocity, damagePerRound, instigator);
         m_LastShotFired = Time.time;
     }
 

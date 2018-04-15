@@ -6,7 +6,11 @@ public class CozyInputManager : MonoBehaviour {
     public PlayerCharacterController[] players;
 
 	[HideInInspector]
-	public int activePlayers=0;
+	public List<PlayerCharacterController> activePlayers;
+
+	void Start(){
+		activePlayers = new List<PlayerCharacterController> ();
+	}
 
     void Update()
     {
@@ -23,7 +27,7 @@ public class CozyInputManager : MonoBehaviour {
                 if(state.Buttons.A == ButtonState.Pressed)
                 {
                     players[i].gameObject.SetActive(true);
-					activePlayers++;
+					activePlayers.Add (players [i]);
                 }
             }
             else

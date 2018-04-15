@@ -15,6 +15,10 @@ public class PlayerCharacterController : MonoBehaviour, IGenerateNoise
     [HideInInspector] public bool isFiring;
     [HideInInspector] public bool isRunning;
 
+	[HideInInspector] public int damageInflicted=0;
+	[HideInInspector] public int killCount=0;
+	[HideInInspector] public int bulletsShot=0;
+
     private BaseWeapon m_CurrentWeapon;
 
     private CharacterController m_CharacterController = null;
@@ -73,6 +77,7 @@ public class PlayerCharacterController : MonoBehaviour, IGenerateNoise
         if(weaponPrefab != null)
         {
             m_CurrentWeapon = Instantiate(weaponPrefab.gameObject, transform).GetComponent<BaseWeapon>();
+			m_CurrentWeapon.instigator = this;
         }
     }
 

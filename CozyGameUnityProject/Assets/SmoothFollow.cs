@@ -36,7 +36,7 @@ public class SmoothFollow : MonoBehaviour
 
 	public void LateUpdate()
 	{
-		if (gameManager.activePlayers == 0)
+		if (gameManager.activePlayers.Count==0)
 			return;
 		
 		boundingBox = CalculateTargetsBoundingBox();
