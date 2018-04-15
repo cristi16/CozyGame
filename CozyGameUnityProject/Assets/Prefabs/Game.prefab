@@ -303,7 +303,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1059236964056576}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 18.06, y: 30, z: 18.49}
+  m_LocalPosition: {x: 0, y: 30, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4291132027528784}
@@ -316,7 +316,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1486053964324886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 15.9, y: 0, z: 7.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4921124192534750}
@@ -666,11 +666,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   runSpeed: 8
+  moveNoiseAmount: 3
+  runNoiseAmount: 6
   startingWeaponPrefab: {fileID: 114686520080448562, guid: 2c6bcb3840bc8b94cbe5316a2b4591a0,
     type: 2}
   moveInput: {x: 0, y: 0}
   lookInput: {x: 0, y: 0}
   isFiring: 0
+  isRunning: 0
 --- !u!114 &114241582146659908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -684,11 +687,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   runSpeed: 8
+  moveNoiseAmount: 3
+  runNoiseAmount: 6
   startingWeaponPrefab: {fileID: 114686520080448562, guid: 2c6bcb3840bc8b94cbe5316a2b4591a0,
     type: 2}
   moveInput: {x: 0, y: 0}
   lookInput: {x: 0, y: 0}
   isFiring: 0
+  isRunning: 0
 --- !u!114 &114331588942816482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -702,11 +708,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   runSpeed: 8
+  moveNoiseAmount: 3
+  runNoiseAmount: 6
   startingWeaponPrefab: {fileID: 114686520080448562, guid: 2c6bcb3840bc8b94cbe5316a2b4591a0,
     type: 2}
   moveInput: {x: 0, y: 0}
   lookInput: {x: 0, y: 0}
   isFiring: 0
+  isRunning: 0
 --- !u!114 &114631792021908336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -720,11 +729,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   runSpeed: 8
+  moveNoiseAmount: 3
+  runNoiseAmount: 6
   startingWeaponPrefab: {fileID: 114686520080448562, guid: 2c6bcb3840bc8b94cbe5316a2b4591a0,
     type: 2}
   moveInput: {x: 0, y: 0}
   lookInput: {x: 0, y: 0}
   isFiring: 0
+  isRunning: 0
 --- !u!114 &114695069152484750
 MonoBehaviour:
   m_ObjectHideFlags: 1
