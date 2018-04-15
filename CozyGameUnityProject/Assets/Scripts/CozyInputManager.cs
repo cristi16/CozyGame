@@ -3,40 +3,74 @@ using XInputDotNetPure;
 using System.Collections.Generic;
 
 public class CozyInputManager : MonoBehaviour {
-    public PlayerCharacterController[] players;
+    private static CozyInputManager s_Instance = null;
+    public static CozyInputManager Instance { get { return s_Instance; } }
+    public bool allowJoinInProgress = true;
 
-	[HideInInspector]
-	public List<PlayerCharacterController> activePlayers;
+    private LobbyUserInterface m_LobbyManager;
+    private bool[] m_PlayerJoined = new bool[4];
 
-	void Start(){
-		activePlayers = new List<PlayerCharacterController> ();
-	}
+    public void SetLobbyManager(LobbyUserInterface lobby)
+    {
+        m_LobbyManager = lobby;
+    }
+
+    public bool IsControllerPlaying(int index)
+    {
+        return m_PlayerJoined[index];
+    }
+
+    void Awake()
+    {
+        if(s_Instance != null)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            s_Instance = this;
+            DontDestroyOnLoad(this);
+        }
+    }
+
+    void OnDestroy()
+    {
+        s_Instance = null;
+    }
 
     void Update()
     {
 		for(int i = 0; i < 4; ++i)
         {
             GamePadState state = GamePad.GetState((PlayerIndex)i, GamePadDeadZone.Circular);
-            	
-			if (i >= players.Length)
-				continue;
-			
-			if(!players[i].gameObject.activeSelf)
+
+            // Player joining
+            if (!m_PlayerJoined[i])
             {
-                // Player log in by pressing A
-                if(state.Buttons.A == ButtonState.Pressed)
+                if ((m_LobbyManager != null || allowJoinInProgress) && state.Buttons.A == ButtonState.Pressed)
                 {
-                    players[i].gameObject.SetActive(true);
-					activePlayers.Add (players [i]);
+                    m_PlayerJoined[i] = true;
+                    if (m_LobbyManager != null) m_LobbyManager.OnPlayerJoined(i);
+                    if (GameManager.Instance != null) GameManager.Instance.OnPlayerJoined(i);
+                }
+                continue;
+            }
+
+            if(m_LobbyManager != null)
+            {
+                // When in lobby you can just press start
+                if(state.Buttons.Start == ButtonState.Pressed)
+                {
+                    m_LobbyManager.OnStartPressed(i);
                 }
             }
-            else
+            else if(GameManager.Instance != null)
             {
-                // Handle logged in player input
-                players[i].moveInput = new Vector2(state.ThumbSticks.Left.X, state.ThumbSticks.Left.Y);
-                players[i].lookInput = new Vector2(state.ThumbSticks.Right.X, state.ThumbSticks.Right.Y);
-                players[i].isFiring = state.Triggers.Right > 0.5f;
-                players[i].isRunning = state.Buttons.LeftShoulder == ButtonState.Pressed;
+                // When in game redirect input to player character
+                GameManager.Instance.players[i].moveInput = new Vector2(state.ThumbSticks.Left.X, state.ThumbSticks.Left.Y);
+                GameManager.Instance.players[i].lookInput = new Vector2(state.ThumbSticks.Right.X, state.ThumbSticks.Right.Y);
+                GameManager.Instance.players[i].isFiring = state.Triggers.Right > 0.5f;
+                GameManager.Instance.players[i].isRunning = state.Buttons.LeftShoulder == ButtonState.Pressed;
             }
         }
     }
