@@ -10,11 +10,14 @@ public class CozyInputManager : MonoBehaviour {
 
     void Update()
     {
-		for(int i = 0; i < players.Length; ++i)
+		for(int i = 0; i < 4; ++i)
         {
             GamePadState state = GamePad.GetState((PlayerIndex)i, GamePadDeadZone.Circular);
-            
-            if(!players[i].gameObject.activeSelf)
+            	
+			if (i >= players.Length)
+				continue;
+			
+			if(!players[i].gameObject.activeSelf)
             {
                 // Player log in by pressing A
                 if(state.Buttons.A == ButtonState.Pressed)

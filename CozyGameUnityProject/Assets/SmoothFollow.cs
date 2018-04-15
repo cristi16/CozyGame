@@ -23,6 +23,15 @@ public class SmoothFollow : MonoBehaviour
 	[SerializeField]
 	float oSizeRatio=2f;
 
+	[SerializeField] 
+	float fieldViewMin=5f;
+
+	[SerializeField] 
+	float fieldViewMax=200f;
+
+	[SerializeField]
+	float fieldViewRatio=1f;
+
 	Rect boundingBox;
 
 	public void LateUpdate()
@@ -32,7 +41,11 @@ public class SmoothFollow : MonoBehaviour
 		
 		boundingBox = CalculateTargetsBoundingBox();
 		transform.position = CalculateCameraPosition(boundingBox);
-		Camera.main.orthographicSize = CalculateOrthographicSize(boundingBox);
+
+		if (Camera.main.orthographic)
+			Camera.main.orthographicSize = CalculateOrthographicSize (boundingBox);
+		else
+			Camera.main.fieldOfView = CalculateFieldOfView (boundingBox);
 	}
 
 	Rect CalculateTargetsBoundingBox(){
@@ -60,8 +73,11 @@ public class SmoothFollow : MonoBehaviour
 	Vector3 CalculateCameraPosition(Rect boundingBox)
 	{
 		Vector2 boundingBoxCenter = boundingBox.center;
-
-		return new Vector3(boundingBoxCenter.x, Camera.main.transform.position.y, boundingBoxCenter.y);
+		if (Camera.main.orthographic) {
+			return new Vector3 (boundingBoxCenter.x, Camera.main.transform.position.y, boundingBoxCenter.y);
+		} else {
+			return new Vector3 (boundingBoxCenter.x, Camera.main.transform.position.y, boundingBoxCenter.y);
+		}
 	}
 
 	float CalculateOrthographicSize(Rect boundingBox)
@@ -76,6 +92,20 @@ public class SmoothFollow : MonoBehaviour
 			orthographicSize = Mathf.Abs(boundingBox.height) / oSizeRatio;
 
 		return Mathf.Clamp(Mathf.Lerp(Camera.main.orthographicSize, orthographicSize, Time.deltaTime * zoomSpeed), oSizeMin, oSizeMax);
-	}		
+	}
+
+	float CalculateFieldOfView(Rect boundingBox)
+	{
+		float fieldOfView = Camera.main.fieldOfView;
+		Vector3 topRight = new Vector3(boundingBox.x + boundingBox.width, 0f, boundingBox.y);
+		Vector3 topRightAsViewport = Camera.main.WorldToViewportPoint(topRight);
+
+		if (topRightAsViewport.x >= topRightAsViewport.y)
+			fieldOfView = Mathf.Abs(boundingBox.width) / Camera.main.aspect / fieldViewRatio;
+		else
+			fieldOfView = Mathf.Abs(boundingBox.height) / fieldViewRatio;
+
+		return Mathf.Clamp(Mathf.Lerp(Camera.main.fieldOfView, fieldOfView, Time.deltaTime * zoomSpeed), fieldViewMin, fieldViewMax);
+	}
 
 }
