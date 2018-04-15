@@ -15,15 +15,15 @@ public class PlayerCharacterController : MonoBehaviour, IGenerateNoise
     [HideInInspector] public bool isFiring;
     [HideInInspector] public bool isRunning;
 
-
     private BaseWeapon m_CurrentWeapon;
+
     private CharacterController m_CharacterController = null;
     private bool m_LastIsFiring = false;
 
     void Start()
     {
-        m_CurrentWeapon = Instantiate(startingWeaponPrefab.gameObject, transform).GetComponent<BaseWeapon>();
         m_CharacterController = GetComponent<CharacterController>();
+        SetCurrentWeaponSlot(startingWeaponPrefab);
     }
 
     void Update()
@@ -58,6 +58,22 @@ public class PlayerCharacterController : MonoBehaviour, IGenerateNoise
     public void ReceiveDamage(float damage)
     {
         
+    }
+
+    public void SetCurrentWeaponSlot(BaseWeapon weaponPrefab)
+    {
+        // Destroy current weapon
+        if(m_CurrentWeapon != null)
+        {
+            Destroy(m_CurrentWeapon.gameObject);
+        }
+        m_CurrentWeapon = null;
+
+        // Spawn in new weapon
+        if(weaponPrefab != null)
+        {
+            m_CurrentWeapon = Instantiate(weaponPrefab.gameObject, transform).GetComponent<BaseWeapon>();
+        }
     }
 
 

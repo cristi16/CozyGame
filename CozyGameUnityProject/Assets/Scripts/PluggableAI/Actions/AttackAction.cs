@@ -13,7 +13,7 @@ public class AttackAction : Action
 	{
 		RaycastHit hit;
 		Vector3 position = controller.eyes.position;
-		float radius = controller.enemyStats.lookSphereCastRadius;
+		float radius = controller.enemyStats.attackSphereCastRadius;
 		Vector3 direction = controller.eyes.forward;
 		float attackRange = controller.enemyStats.attackRange;
 
