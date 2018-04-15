@@ -19,7 +19,7 @@ public class AttackAction : Action
 
 		Debug.DrawRay(position, direction.normalized * (attackRange + radius), Color.red);
 
-        if (Physics.SphereCast(position, radius, direction, out hit, attackRange) && hit.collider.CompareTag("Player"))
+        if (Physics.SphereCast(position, radius, direction, out hit, attackRange, 1 << LayerMask.NameToLayer("Players")))
 		{
 			if (controller.CheckIfCountDownElapsed(controller.enemyStats.attackRate))
 			{
