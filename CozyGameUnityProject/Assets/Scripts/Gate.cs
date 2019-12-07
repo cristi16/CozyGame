@@ -8,7 +8,7 @@ public class Gate : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         if (other.GetComponent<PlayerCharacterController>() != null) {
-            if (Inventory.Instance.HasItems(RequiredItems)) {
+            if (GlobalInventory.Instance.HasItems(RequiredItems)) {
                 GetComponent<Animator>().SetTrigger("Open");
                 Destroy(this);
             } else {

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Linq.Expressions;
 
-public class ExplodingObject : MonoBehaviour, IBulletHitListener
+public class ExplodingObject : MonoBehaviour, IProjectileHitListener
 {
     public GameObject explosionPrefab;
     public int strength = 1;
@@ -12,7 +12,7 @@ public class ExplodingObject : MonoBehaviour, IBulletHitListener
     public float explosionDamage = 100f;
     public float explosionRange = 5f;
 
-    public void OnBulletHit(BulletHitInfo hit)
+    public void OnProjectileHit(ProjectileHitInfo hit)
     {
         strength--;
 

@@ -242,8 +242,7 @@ MonoBehaviour:
   runSpeed: 2
   moveNoiseAmount: 3
   runNoiseAmount: 6
-  startingWeaponPrefab: {fileID: 114686520080448562, guid: 2c6bcb3840bc8b94cbe5316a2b4591a0,
-    type: 3}
+  startingWeaponPrefab: {fileID: 0}
   health: 0
   moveInput: {x: 0, y: 0}
   lookInput: {x: 0, y: 0}

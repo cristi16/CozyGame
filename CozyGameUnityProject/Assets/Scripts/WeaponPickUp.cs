@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponPickUp : MonoBehaviour {
-    public BaseWeapon weaponPrefab;
+    // public BaseWeapon weaponPrefab;
     public Color pulseAColor;
     public Color pulseBColor;
     public SpriteRenderer previewSprite;
@@ -13,7 +13,7 @@ public class WeaponPickUp : MonoBehaviour {
         var playerCharacter = other.GetComponent<PlayerCharacterController>();
         if(playerCharacter != null)
         {
-            playerCharacter.SetCurrentWeaponSlot(weaponPrefab);
+            // playerCharacter.SetCurrentWeaponSlot(weaponPrefab);
             Destroy(gameObject);
         }
     }

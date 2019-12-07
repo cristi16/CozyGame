@@ -70,6 +70,7 @@ public class CozyInputManager : MonoBehaviour {
                 GameManager.Instance.players[i].moveInput = new Vector2(state.ThumbSticks.Left.X, state.ThumbSticks.Left.Y);
                 GameManager.Instance.players[i].lookInput = new Vector2(state.ThumbSticks.Right.X, state.ThumbSticks.Right.Y);
                 GameManager.Instance.players[i].isFiring = state.Triggers.Right > 0.5f;
+                GameManager.Instance.players[i].reload = state.Buttons.X == ButtonState.Pressed;
                 GameManager.Instance.players[i].isRunning = state.Buttons.LeftShoulder == ButtonState.Pressed;
             }
         }
