@@ -37,11 +37,11 @@ public class StateController : MonoBehaviour {
 	    if (nextState != currentState)
 	    {
 	        Debug.Log("Transition To State: " + nextState.name);
-	    }
-	    stateTimeElapsed = 0;
+	    }        
+        stateTimeElapsed = 0;
 	    currentState.ExitState(this);
         currentState = nextState;
-        currentState.EnterState(this);
+        currentState.EnterState(this);        
 	}
 
 	public bool CheckIfCountDownElapsed(float duration)
@@ -60,7 +60,8 @@ public class StateController : MonoBehaviour {
 	{
 		if (!aiActive) return;
 
-		currentState.UpdateState(this);
+        navMeshAgent.speed = currentState.speed;
+        currentState.UpdateState(this);
 	}
 
 	void OnDrawGizmos()

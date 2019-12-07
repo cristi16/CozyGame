@@ -20,11 +20,7 @@ public class GameManager : MonoBehaviour
             {
                 OnPlayerJoined(i);
             }
-        }
-        if (GameManager.Instance.KeyboardMode)
-        {
-            OnPlayerJoined(0);
-        }
+        }       
 
     }
     private void OnDestroy()
