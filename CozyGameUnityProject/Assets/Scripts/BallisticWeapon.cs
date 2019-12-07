@@ -9,12 +9,12 @@ public class BallisticWeapon : Weapon
     public float MuzzleDistance;
     public int Ammunition;
     public int MaxAmmunition;
-    public IController Controller = null;
 
     private float lastShot;
 
     void FixedUpdate() {
-        if (Controller != null && Controller.Fire && Time.fixedTime >= lastShot + 1f / FiringRate) {
+        IController controller = Container == null ? null : Container.GetComponent<IController>(); //TODO: This is a bit dodgy
+        if (controller != null && controller.Fire && Time.fixedTime >= lastShot + 1f / FiringRate) {
             if (Ammunition > 0) {
                 Instantiate(Projectile, transform.position + MuzzleDistance * Vector3.right, transform.rotation);
                 Ammunition--;
