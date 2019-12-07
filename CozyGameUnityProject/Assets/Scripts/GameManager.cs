@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return s_Instance; } }
 
     public PlayerCharacterController[] players;
+    public bool KeyboardMode = false;
 
     private void Start()
     {
@@ -19,6 +20,10 @@ public class GameManager : MonoBehaviour
             {
                 OnPlayerJoined(i);
             }
+        }
+        if (GameManager.Instance.KeyboardMode)
+        {
+            OnPlayerJoined(0);
         }
 
     }
