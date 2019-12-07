@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerCharacterController : MonoBehaviour, IGenerateNoise, IExplosionHitListener
+public class PlayerCharacterController : MonoBehaviour, IGenerateNoise, IExplosionHitListener, BallisticWeapon.IController
 {
 	public float maxHealth = 100.0f;
 	public float moveSpeed = 2.0f;
