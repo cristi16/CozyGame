@@ -38,12 +38,38 @@ public class PlayerCharacterController : MonoBehaviour, IGenerateNoise, IExplosi
     void Update()
     {
         Vector3 moveInput3D = new Vector3(moveInput.x, 0.0f, moveInput.y);
+
+        if (GameManager.Instance.KeyboardMode)
+        {
+            isFiring = GameManager.Instance.KeyboardMode && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow));
+            isRunning = GameManager.Instance.KeyboardMode && Input.GetKey(KeyCode.LeftShift);
+            int left = Input.GetKey(KeyCode.A) ? -1 : 0;
+            int right = Input.GetKey(KeyCode.D) ? 1 : 0;
+
+            int up = Input.GetKey(KeyCode.W) ? 1 : 0;
+            int down = Input.GetKey(KeyCode.S) ? -1 : 0;
+
+            moveInput3D = new Vector3(left + right, 0.0f, up + down);
+        }
         m_CharacterController.SimpleMove(moveInput3D * (isRunning ? runSpeed : moveSpeed));
 
         // Rotate to look at gamepad target
-        if(lookInput != Vector2.zero)
+        if(lookInput != Vector2.zero || GameManager.Instance.KeyboardMode)
         {
-            transform.rotation = Quaternion.LookRotation(new Vector3(lookInput.x, 0.0f, lookInput.y), Vector3.up);
+            Vector3 lookInput3D = new Vector3(lookInput.x, 0.0f, lookInput.y);
+
+            if (GameManager.Instance.KeyboardMode)
+            {
+                int left = Input.GetKey(KeyCode.LeftArrow) ? -1 : 0;
+                int right = Input.GetKey(KeyCode.RightArrow) ? 1 : 0;
+
+                int up = Input.GetKey(KeyCode.UpArrow) ? 1 : 0;
+                int down = Input.GetKey(KeyCode.DownArrow) ? -1 : 0;
+
+                lookInput3D = new Vector3(left + right, 0.0f, up + down);               
+            }
+
+            transform.rotation = Quaternion.LookRotation(lookInput3D, Vector3.up);
         }
 
         // Update weapon handling

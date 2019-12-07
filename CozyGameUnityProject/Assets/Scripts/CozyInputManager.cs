@@ -42,7 +42,7 @@ public class CozyInputManager : MonoBehaviour {
     {
 		for(int i = 0; i < 4; ++i)
         {
-            GamePadState state = GamePad.GetState((PlayerIndex)i, GamePadDeadZone.Circular);
+            GamePadState state = GamePad.GetState((PlayerIndex)i, GamePadDeadZone.Circular);            
 
             // Player joining
             if (!m_PlayerJoined[i])
