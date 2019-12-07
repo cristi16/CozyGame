@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerCharacterController : MonoBehaviour, IGenerateNoise, IExplosionHitListener
+public class PlayerCharacterController : MonoBehaviour, IGenerateNoise, IExplosionHitListener, BallisticWeapon.IController
 {
 	public float maxHealth = 100.0f;
 	public float moveSpeed = 2.0f;
@@ -119,5 +119,12 @@ public class PlayerCharacterController : MonoBehaviour, IGenerateNoise, IExplosi
     public void OnExplosionHit(float damage)
     {
         ReceiveDamage(damage);
+    }
+
+    //For Toke's new weapon system
+    public bool Fire {
+        get {
+            return isFiring;
+        }
     }
 }
