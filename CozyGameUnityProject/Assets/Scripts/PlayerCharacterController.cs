@@ -208,7 +208,11 @@ public class PlayerCharacterController : MonoBehaviour, IGenerateNoise, IExplosi
     {
         get
         {
-            return reload;
+            if (reload) return true;
+            Weapon weapon = GetComponent<WeaponInventory>().Weapon;
+            if (weapon == null) return false;
+            ProjectileWeapon projectileWeapon = weapon.GetComponent<ProjectileWeapon>();
+            return projectileWeapon != null && projectileWeapon.Ammunition == 0;
         }
     }
 }
