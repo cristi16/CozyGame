@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieHealth : MonoBehaviour, IBulletHitListener, IExplosionHitListener {
+public class ZombieHealth : MonoBehaviour, IProjectileHitListener, IExplosionHitListener {
     public float health;
-    float maxHealth;
+	float maxHealth;
 
     Material m;
-    public void OnBulletHit(BulletHitInfo hitInfo)
+
+    public void OnProjectileHit(ProjectileHitInfo hitInfo)
     {
-        health -= hitInfo.damage;
-		hitInfo.instigator.damageInflicted+=hitInfo.damage;
+        health -= hitInfo.Damage;
+		hitInfo.Instigator.damageInflicted+=hitInfo.Damage;
         if(health <= 0.0f)
         {
 			//Zombie Dies
-			hitInfo.instigator.killCount++;
+			hitInfo.Instigator.killCount++;
             Destroy(gameObject);
         }
     }

@@ -6,7 +6,7 @@ public class ItemInstance : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         if (other.GetComponent<PlayerCharacterController>() != null) {
-            Inventory.Instance.AddItem(Item);
+            GlobalInventory.Instance.AddItem(Item);
             Destroy(gameObject);
         }
     }

@@ -5,8 +5,9 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public Sprite Icon;
+    public SpriteRenderer SpriteRenderer;
 
-    public Inventory Container {
+    public Inventory Inventory {
         get {
             return transform.parent.GetComponent<Inventory>();
         }
@@ -14,14 +15,14 @@ public class Item : MonoBehaviour
 
     public bool Equipped {
         get {
-            return !GetComponent<SpriteRenderer>().enabled;
+            return !SpriteRenderer.enabled;
         }
         set {
-            GetComponent<SpriteRenderer>().enabled = !value;
+            SpriteRenderer.enabled = !value;
         }
     }
 
     void Awake() {
-        Equipped = Container != null;
+        Equipped = Inventory != null;
     }
 }

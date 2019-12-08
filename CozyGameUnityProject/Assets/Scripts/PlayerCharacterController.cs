@@ -3,14 +3,14 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerCharacterController : MonoBehaviour, IGenerateNoise, IExplosionHitListener, BallisticWeapon.IController
+public class PlayerCharacterController : MonoBehaviour, IGenerateNoise, IExplosionHitListener, ProjectileWeapon.IController
 {
 	public float maxHealth = 100.0f;
 	public float moveSpeed = 2.0f;
 	public float runSpeed = 4.0f;
 	public float moveNoiseAmount = 3f;
 	public float runNoiseAmount = 6f;
-	public BaseWeapon startingWeaponPrefab = null;    
+	// public BaseWeapon startingWeaponPrefab = null;
 
 	[HideInInspector]
 	public float health;    
@@ -19,14 +19,15 @@ public class PlayerCharacterController : MonoBehaviour, IGenerateNoise, IExplosi
     [HideInInspector] public Vector2 moveInput;
     [HideInInspector] public Vector2 lookInput;
     [HideInInspector] public bool isFiring;
+    [HideInInspector] public bool reload;
     [HideInInspector] public bool isRunning;
-    [HideInInspector] public bool isPushing;
+	[HideInInspector] public bool isPushing;
 
-    [HideInInspector] public int damageInflicted=0;
+	[HideInInspector] public float damageInflicted=0f;
 	[HideInInspector] public int killCount=0;
 	[HideInInspector] public int bulletsShot=0;
 
-    private BaseWeapon m_CurrentWeapon;
+    // private BaseWeapon m_CurrentWeapon;
 
     private CharacterController m_CharacterController = null;
     private bool m_LastIsFiring = false;
@@ -36,9 +37,9 @@ public class PlayerCharacterController : MonoBehaviour, IGenerateNoise, IExplosi
     void Start()
     {
         m_CharacterController = GetComponent<CharacterController>();
-        SetCurrentWeaponSlot(startingWeaponPrefab);
+        // SetCurrentWeaponSlot(startingWeaponPrefab);
 		health = maxHealth;
-        playerSprite = GetComponentInChildren<SpriteRenderer>();
+		 playerSprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     void Update()
@@ -136,22 +137,22 @@ public class PlayerCharacterController : MonoBehaviour, IGenerateNoise, IExplosi
         //Destroy(gameObject);
     }
 
-    public void SetCurrentWeaponSlot(BaseWeapon weaponPrefab)
-    {
-        // Destroy current weapon
-        if(m_CurrentWeapon != null)
-        {
-            Destroy(m_CurrentWeapon.gameObject);
-        }
-        m_CurrentWeapon = null;
+    // public void SetCurrentWeaponSlot(BaseWeapon weaponPrefab)
+    // {
+    //     // Destroy current weapon
+    //     if(m_CurrentWeapon != null)
+    //     {
+    //         Destroy(m_CurrentWeapon.gameObject);
+    //     }
+    //     m_CurrentWeapon = null;
 
-        // Spawn in new weapon
-        if(weaponPrefab != null)
-        {
-            m_CurrentWeapon = Instantiate(weaponPrefab.gameObject, transform).GetComponent<BaseWeapon>();
-			m_CurrentWeapon.instigator = this;
-        }
-    }
+    //     // Spawn in new weapon
+    //     if(weaponPrefab != null)
+    //     {
+    //         m_CurrentWeapon = Instantiate(weaponPrefab.gameObject, transform).GetComponent<BaseWeapon>();
+	// 		m_CurrentWeapon.instigator = this;
+    //     }
+    // }
 
 
     public NoiseData GetNoiseData()
@@ -209,6 +210,11 @@ public class PlayerCharacterController : MonoBehaviour, IGenerateNoise, IExplosi
             }           
 
             Debug.Log("Zombie Hit");
+        }
+    }
+    public bool Reload {
+        get {
+            return reload;
         }
     }
 }

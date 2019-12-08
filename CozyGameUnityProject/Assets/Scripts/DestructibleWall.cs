@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestructibleWall : MonoBehaviour, IBulletHitListener {
+public class DestructibleWall : MonoBehaviour, IProjectileHitListener {
     public float health = 100;
 
-    public void OnBulletHit(BulletHitInfo hitInfo)
+    public void OnProjectileHit(ProjectileHitInfo hitInfo)
     {
-        health -= hitInfo.damage;
+        health -= hitInfo.Damage;
     }
 }
