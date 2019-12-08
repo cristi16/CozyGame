@@ -3,7 +3,11 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerCharacterController : MonoBehaviour, IGenerateNoise, IExplosionHitListener, ProjectileWeapon.IController
+public class PlayerCharacterController : MonoBehaviour,
+IGenerateNoise,
+IExplosionHitListener,
+ProjectileWeapon.IController,
+WeaponInventory.IController
 {
     public float maxHealth = 100.0f;
     public float moveSpeed = 2.0f;
@@ -20,6 +24,9 @@ public class PlayerCharacterController : MonoBehaviour, IGenerateNoise, IExplosi
     [HideInInspector] public Vector2 lookInput;
     [HideInInspector] public bool isFiring;
     [HideInInspector] public bool reload;
+    [HideInInspector] public bool pickUpWeapon;
+    private bool pickUpWeaponReleased = true;
+    [HideInInspector] public bool dropWeapon;
     [HideInInspector] public bool isRunning;
     [HideInInspector] public bool isPushing;
 
@@ -196,7 +203,41 @@ public class PlayerCharacterController : MonoBehaviour, IGenerateNoise, IExplosi
             Debug.Log("Zombie Hit");
         }
     }
-    //For Toke's new weapon system
+
+    public bool DropWeapon
+    {
+        get {
+            return dropWeapon;
+        }
+    }
+
+    public Weapon PickUpWeapon
+    {
+        get {
+            if (!pickUpWeapon) {
+                pickUpWeaponReleased = true;
+                return null;
+            } else if (!pickUpWeaponReleased) {
+                return null;
+            }
+            pickUpWeaponReleased = false;
+            //TODO: This is horribly inefficient. Fix it. --Toke, the embarrased author
+            Weapon[] weapons = FindObjectsOfType<Weapon>();
+            Weapon weapon = null;
+            float smallestDistance = float.PositiveInfinity;
+            for (int i = 0; i < weapons.Length; i++) {
+                if (!weapons[i].Equipped) {
+                    float distance = (weapons[i].transform.position - transform.position).magnitude;
+                    if (distance <= GetComponent<WeaponInventory>().PickupRange && (weapon == null || distance < smallestDistance)) {
+                        weapon = weapons[i];
+                        smallestDistance = distance;
+                    }
+                }
+            }
+            return weapon;
+        }
+    }
+
     public bool Fire
     {
         get

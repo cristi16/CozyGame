@@ -242,12 +242,15 @@ MonoBehaviour:
   runSpeed: 2
   moveNoiseAmount: 3
   runNoiseAmount: 6
-  startingWeaponPrefab: {fileID: 0}
   health: 0
   moveInput: {x: 0, y: 0}
   lookInput: {x: 0, y: 0}
   isFiring: 0
+  reload: 0
+  pickUpWeapon: 0
+  dropWeapon: 0
   isRunning: 0
+  isPushing: 0
   damageInflicted: 0
   killCount: 0
   bulletsShot: 0
@@ -263,6 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7b9e4eb82d148746be45ae8d7fcad30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickupRange: 1
   Weapon: {fileID: 0}
 --- !u!1001 &5589664213570851172
 PrefabInstance:

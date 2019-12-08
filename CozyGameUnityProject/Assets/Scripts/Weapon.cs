@@ -6,7 +6,8 @@ public class Weapon : Item
 {
     public WeaponInventory WeaponInventory {
         get {
-            return transform.parent.GetComponent<WeaponInventory>();
+            Transform parent = transform.parent;
+            return parent == null ? null : parent.GetComponent<WeaponInventory>();
         }
     }
 

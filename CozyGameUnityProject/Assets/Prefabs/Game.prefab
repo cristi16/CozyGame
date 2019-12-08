@@ -1201,7 +1201,7 @@ MonoBehaviour:
   - {fileID: 403875397827728699}
   - {fileID: 2272841976094959269}
   - {fileID: 2587267656316266904}
-  KeyboardMode: 1
+  KeyboardMode: 0
 --- !u!114 &2818376197033384479
 MonoBehaviour:
   m_ObjectHideFlags: 0
