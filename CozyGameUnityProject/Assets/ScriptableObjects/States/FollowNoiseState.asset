@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -24,3 +25,4 @@ MonoBehaviour:
     trueState: {fileID: 11400000, guid: 7d89d71fcd746b942b4271df9734f8fb, type: 2}
     falseState: {fileID: 11400000, guid: 0c94314c6282a9d4194a682929995613, type: 2}
   sceneGizmoColor: {r: 0.7725422, g: 0.9632353, b: 0.09915656, a: 1}
+  speed: 0.9
