@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileWeapon : Weapon
+public class ProjectileWeapon : Weapon, IReloadableWeapon
 {
     public GameObject Projectile;
     public float FiringRate;
@@ -13,6 +13,18 @@ public class ProjectileWeapon : Weapon
 
     private float lastShot;
     private float reloadStart = float.NaN;
+
+    public bool IsReloading {
+        get {
+            return !float.IsNaN(reloadStart);
+        }
+    }
+
+    public float ReloadingProgress {
+        get {
+            return float.IsNaN(reloadStart) ? float.NaN : ((Time.fixedTime - reloadStart) / ReloadDuration);
+        }
+    }
 
     void FixedUpdate() {
         if (!float.IsNaN(reloadStart)) {
@@ -40,6 +52,8 @@ public class ProjectileWeapon : Weapon
             }
         }
     }
+
+    
 
     public interface IController {
         bool Fire { get; }
